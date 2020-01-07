@@ -3,7 +3,7 @@ function NotesList() {
 };
 
 NotesList.prototype.addNote = function (note) {
-    this.notes.push(note);
+    this.notes.push(new Note(note));
 };
 
 NotesList.prototype.returnNotes = function() {

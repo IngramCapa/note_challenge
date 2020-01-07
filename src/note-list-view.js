@@ -6,8 +6,8 @@
 
   NotesListView.prototype.getHTMLString = function() {
     var string = "<ul>"
-    this.notesList.notes.forEach(note => {
-      string += `<li>${note.substr(0, 20)}</li>`;
+    this.notesList.returnNotes().forEach(note => {
+      string += `<li><a href='#notes/${note.id}'>${note.returnText().substr(0, 20)}</a></li>`;
     });
     return string + "</ul>"
   };
