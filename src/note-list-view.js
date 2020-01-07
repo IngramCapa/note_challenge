@@ -1,5 +1,5 @@
-function NotesListView() {
-    this.notesList = new NotesList();
+function NotesListView(notesList) {
+    this.notesList = notesList;
 };
 
 
