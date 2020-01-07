@@ -1,7 +1,15 @@
-function Note(text){
-    this.text = text;
-};
+(function (exports) {
+    var noteIdCounter = 0;
 
-Note.prototype.returnText = function(){
-    return this.text;
-};
+    function Note(text) {
+        this.text = text;
+        this.id = noteIdCounter++;
+    };
+
+    Note.prototype.returnText = function () {
+        return this.text;
+    };
+
+    exports.Note = Note;
+
+})(this);
