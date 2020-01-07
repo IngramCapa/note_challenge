@@ -21,5 +21,3 @@ function testReturnNotes() {
 testNotesArray();
 addNote();
 testReturnNotes()
-
-console.log(`${passedTests} Passed Tests`)
