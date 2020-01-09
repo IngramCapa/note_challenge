@@ -40,7 +40,7 @@ function testHashchange() {
       func();
     }
   }
-  noteController.setHashchangeCallback(fakeWindow, element);
+  noteController.makeUrlChange();
   assert.isTrue(callCounter === 1);
   assert.isTrue(element.innerHTML === '<div>Favourite drink: Seltzer</div>');
 }

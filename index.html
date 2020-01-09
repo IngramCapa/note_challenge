@@ -9,14 +9,35 @@
 <body>
 
     <div id="app">Hello</div>
-    
+
     <script src='./src/note-model.js'></script>
     <script src='./src/note-list-model.js'></script>
     <script src='./src/note-list-view.js'></script>
+    <script src='./src/single-note-view.js'></script>
     <script src='./src/note-controller.js'></script>
     <script>
       const noteController = new NoteController(new NotesList);
       noteController.updateHTML();
+
+      function bla() {
+        window.addEventListener("hashchange", showNoteForCurrentPage);
+
+        function showNoteForCurrentPage() {
+          showNote(getNoteFromUrl(window.location))
+        }
+
+        function getNoteFromUrl(location) {
+          var id = location.hash.slice(-1)
+          return noteController.getNoteById(id);
+        }
+
+        function showNote(note) {
+          document.getElementById("app").innerHTML = note;
+        }
+      }
+
+      bla();
+
     </script>
 
 </body>
