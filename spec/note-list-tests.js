@@ -2,9 +2,9 @@ var notesList = new NotesList();
 notesList.addNote("string1");
 notesList.addNote("string2");
 
-// function testNotesArray() {
-//   assert.isTrue(Array.isArray(notesList.notes));
-// };
+function testNotesArray() {
+  assert.isTrue(Array.isArray(notesList.notes));
+};
 
 function addNote() {
   assert.isTrue(notesList.notes[0].returnText() === "string1");
