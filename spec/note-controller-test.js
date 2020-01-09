@@ -1,4 +1,10 @@
 (function() {
+
+  function setUp() {
+    notesList = new NotesList();
+    notesListView = new NotesListView(notesList);
+  }
+
   function testConstructor() {
     let noteList = new NotesList();
     let noteController = new NoteController(noteList);
@@ -19,4 +25,22 @@
 
   testConstructor();
   testInnerHTMLChange();
+  setUp();
 })();
+
+
+function testHashchange() {
+  setUp();
+  let element = { innerHTML: 'unchanged' };
+  let callCounter = 0;
+  let fakeWindow = {
+    addEventListener: function(type, func) {
+      callCounter++;
+      assert.isTrue(type === 'hashchange');
+      func();
+    }
+  }
+  noteController.setHashchangeCallback(fakeWindow, element);
+  assert.isTrue(callCounter === 1);
+  assert.isTrue(element.innerHTML === '<div>Favourite drink: Seltzer</div>');
+}
