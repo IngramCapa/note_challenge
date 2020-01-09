@@ -18,25 +18,7 @@
     <script>
       const noteController = new NoteController(new NotesList);
       noteController.updateHTML();
-
-      function bla() {
-        window.addEventListener("hashchange", showNoteForCurrentPage);
-
-        function showNoteForCurrentPage() {
-          showNote(getNoteFromUrl(window.location))
-        }
-
-        function getNoteFromUrl(location) {
-          var id = location.hash.slice(-1)
-          return noteController.getNoteById(id);
-        }
-
-        function showNote(note) {
-          document.getElementById("app").innerHTML = note;
-        }
-      }
-
-      bla();
+      noteController.makeUrlChange();
 
     </script>
 

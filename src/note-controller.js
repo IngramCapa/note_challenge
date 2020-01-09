@@ -12,11 +12,22 @@
     return this.notesListView.notesList.getById(id)
   }
 
-  // NoteController.prototype.makeUrlChange = function() {
-  //
-  //
-  // }
+  NoteController.prototype.makeUrlChange = function() {
+    window.addEventListener("hashchange", showNoteForCurrentPage);
 
+      function showNoteForCurrentPage() {
+        showNote(getNoteFromUrl(window.location))
+      }
+
+      function getNoteFromUrl(location) {
+        var id = location.hash.slice(-1)
+        return noteController.getNoteById(id);
+      }
+
+      function showNote(note) {
+        document.getElementById("app").innerHTML = note.returnText();
+      }
+  }
 
   exports.NoteController = NoteController;
 })(this);

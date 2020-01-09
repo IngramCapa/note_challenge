@@ -12,7 +12,8 @@
   }
 
   NotesList.prototype.getById = function(id) {
-    return this.notes[id].get();
+    var arr = this.notes.filter(note => note.id == id)
+    return arr[0]
   }
 
   exports.NotesList = NotesList;
